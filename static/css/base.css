@@ -6,7 +6,7 @@ body {
     background: url('/media/gift1.jpeg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #321c0a;
+    color: rgb(205, 178, 149);
     font-family: 'Lato';
 }
 
@@ -47,13 +47,19 @@ body {
     color: white;
 }
 
-.text-black {
+.text {
     color: rgb(205, 178, 149) !important;
 }
 
 .border-black {
     border: 1px solid black !important;
 }
+
+.bg-wood{
+    background: #381e06 !important;
+    color: rgb(205, 178, 149);
+}
+
 
 /* -------------------------------- Media Queries */
 
