@@ -60,6 +60,15 @@ body {
     color: rgb(205, 178, 149);
 }
 
+a.category-badge > span.badge {
+    color: rgb(205, 178, 149); 
+    background-color: transparent; 
+}
+
+a.category-badge > span.badge:hover {
+    background-color: #381e06; 
+    color: rgb(205, 178, 149); 
+}
 
 /* -------------------------------- Media Queries */
 
@@ -85,3 +94,8 @@ body {
     }
 }
 
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 150px;
+    }
+}
