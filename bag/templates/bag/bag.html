@@ -155,6 +155,7 @@
         $('.update-link').click(function(e) {
             e.preventDefault();
             $(this).closest('td').find('.update-form').submit();
+            showToast(); // Call showToast function here
         });
 
         // Remove item with AJAX
@@ -171,13 +172,37 @@
                 data: data,
                 success: function(response) {
                     location.reload();
+                    showToast(); // Call showToast function here
                 },
                 error: function(xhr, errmsg, err) {
                     console.log("Error: " + errmsg);
                 }
-             });
+            });
         });
+
+        // Function to show toast
+        function showToast() {
+            $('#success-toast').toast('show');
+        }
     });
 </script>
+
+<div aria-live="polite" aria-atomic="true" style="position: relative; z-index: 1050;">
+    <!-- Position it at the end of the page -->
+    <div style="position: fixed; top: 1rem; right: 1rem;">
+        <!-- Then put toasts within -->
+        <div class="toast" id="success-toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
+            <div class="toast-header">
+                <strong class="mr-auto">Note</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Action was successful!
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
