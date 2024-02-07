@@ -102,7 +102,7 @@
                                     </span>
                                     <span class="text-uppercase">Continue Shopping</span>
                                 </a>
-                                <a href="" class="btn btn-black rounded-0 btn-lg">
+                                <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                                     <span class="text-uppercase">Go to Checkout</span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
@@ -190,7 +190,7 @@
 <div aria-live="polite" aria-atomic="true" style="position: relative; z-index: 1050;">
     <!-- Position it at the end of the page -->
     <div style="position: fixed; top: 1rem; right: 1rem;">
-        <!-- Then put toasts within -->
+        <!-- Then toasts is put within -->
         <div class="toast" id="success-toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
             <div class="toast-header">
                 <strong class="mr-auto">Note</strong>
