@@ -10,6 +10,11 @@ body {
     font-family: 'Lato';
 }
 
+form#signup_form {
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -90,6 +95,42 @@ a.category-badge > span.badge:hover {
   .container {
     max-width: 80%;
   }
+}
+
+/* Allauth form formatting */
+.allauth-form-inner-content input::placeholder {
+    color: rgb(205, 178, 149);
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: rgb(205, 178, 149);
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #000;
+    border: 1px solid #000;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: rgb(205, 178, 149);
+    background-color: #222;
+    border-color: #222;
+}
+
+.allauth-form-inner-content a {
+	color: rgb(212, 197, 181); /* text-info */
 }
 
 /* fixed top navbar only on medium and up */
