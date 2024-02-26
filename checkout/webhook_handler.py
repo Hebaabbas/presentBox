@@ -5,6 +5,8 @@ import json
 import time
 import stripe
 from django.conf import settings
+from profiles.models import UserProfile
+
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -37,6 +39,20 @@ class StripeWH_Handler:
                 if value == "":
                     shipping_details.address[field] = None
 
+        # Update profile information if save_info was checked
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.save()   
+
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -63,7 +79,6 @@ class StripeWH_Handler:
                 town_or_city=shipping_details.address.city if shipping_details else '',
                 street_address1=shipping_details.address.line1 if shipping_details else '',
                 street_address2=shipping_details.address.line2 if shipping_details else '',
-                county=shipping_details.address.state if shipping_details else '',
                 grand_total=grand_total,
                 original_bag=bag,
                 stripe_pid=pid,
