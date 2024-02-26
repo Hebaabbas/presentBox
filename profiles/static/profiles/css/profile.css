@@ -1,0 +1,15 @@
+#profile-update-form .form-control {
+	color: rgb(103, 88, 70);
+}
+
+#profile-update-form input::placeholder {
+    color: rgb(205, 178, 149);
+}
+
+#id_default_country option:first-child {
+    color: rgb(205, 178, 149);
+}
+
+.rubric {
+    color: white;
+}
